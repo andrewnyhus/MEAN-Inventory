@@ -23,7 +23,7 @@ export.getInventoryItems = async function(query, page, limit){
     return inventoryItems
 
   } catch (e) {
-    throw Error("Error Paginating Inventory Items")
+    throw Error('Error Paginating Inventory Items')
   }
 }
 // =============================================================================
@@ -48,7 +48,7 @@ exports.createInventoryItem = async function(inventoryItem){
     var savedInventoryItem = await newInventoryItem.save()
     return savedInventoryItem
   }catch(e){
-    throw Error("Error Creating Inventory Item")
+    throw Error('Error Creating Inventory Item')
   }
 
 }
@@ -64,7 +64,7 @@ exports.updateInventoryItem = async function(inventoryItem){
   try{
     var oldInventoryItem = await InventoryItem.findById(id)
   }catch(e){
-    throw console.error("Error Retrieving Inventory Item")
+    throw console.error('Error Retrieving Inventory Item')
   }
 
   // return false if no object
@@ -87,7 +87,7 @@ exports.updateInventoryItem = async function(inventoryItem){
     var savedInventoryItem = await oldInventoryItem.save()
     return savedInventoryItem
   }catch(e){
-    throw Error("Error Saving Changes to Inventory Item")
+    throw Error('Error Saving Changes to Inventory Item')
   }
 
 }
@@ -103,12 +103,12 @@ exports.deleteInventoryItem = async function(id){
     var deleted = await InventoryItem.remove({_id: id})
 
     if(deleted.result.n == 0){ // if 0 docs were deleted, throw error
-      throw Error("Could Not Delete Inventory Item")
+      throw Error('Could Not Delete Inventory Item')
     }
-    
+
     return deleted
   }catch(e){
-    throw Error("Error Deleting Inventory Item")
+    throw Error('Error Deleting Inventory Item')
   }
 
 }
