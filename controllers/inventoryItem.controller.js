@@ -33,7 +33,7 @@ exports.createInventoryItem = async function(req, res, next){
     title: req.body.title ? req.body.title : null,
     description: req.body.description ? req.body.description : null,
     keywords: req.body.keywords ? req.body.keywords : null,
-    image: req.body.image ? req.body.image : null
+    image: req.body.image ? new Buffer(req.body.image) : null
   }
 
   // try/catch create and return inventory item
@@ -57,8 +57,14 @@ exports.updateInventoryItem = async function(req, res, next){
     return res.status(400).json({status: 400, message: "No id present"})
   }
 
-  var id = req.body._id;
+  var id = req.body._id
   console.log(req.body)
+
+
+  // convert image data from string to buffer
+  var image = req.body.image ?
+    {data: new Buffer(req.body.image[0]), contentType: "image/png"}
+    : null;
 
   // store information from request
   var inventoryItem = {
@@ -66,7 +72,7 @@ exports.updateInventoryItem = async function(req, res, next){
     title: req.body.title ? req.body.title : null ,
     description: req.body.description ? req.body.description : null,
     keywords: req.body.keywords ? req.body.keywords : null,
-    image: req.body.image ? req.body.image : null
+    image: image
   }
 
   // try/catch updating inventory item

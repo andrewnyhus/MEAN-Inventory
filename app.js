@@ -13,6 +13,18 @@ var api = require('./routes/api.route')
 var app = express()
 
 
+// allow requests from the front end which is on a different port number (4200)
+// dev code only
+// =============================================================================
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+  next()
+})
+// =============================================================================
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -67,14 +79,5 @@ mongoose.connect('mongodb://127.0.0.1:27017/MEAN-Inventory', {}).then(()=> {
 // =============================================================================
 
 
-// allow requests from the front end which is on a different port number (4200)
-// =============================================================================
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-  next()
-})
-// =============================================================================
 
 module.exports = app
