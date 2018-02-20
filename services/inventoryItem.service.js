@@ -2,12 +2,12 @@
 var InventoryItem = require('../models/inventoryItem.model')
 
 // saving this into variable
-_this = _this
+_this = this
 
 
 // asynchronous function to get inventory items
 // =============================================================================
-export.getInventoryItems = async function(query, page, limit){
+exports.getInventoryItems = async function(query, page, limit){
 
   // setup options for mongoose paginate
   var options = {
