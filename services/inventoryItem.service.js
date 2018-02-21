@@ -29,6 +29,22 @@ exports.getInventoryItems = async function(query, page, limit){
 // =============================================================================
 
 
+// asynchronous function to get an inventory item
+// =============================================================================
+exports.getInventoryItem = async function(id){
+
+  // try/catch delete inventory item
+  try{
+    var item = await InventoryItem.findById({_id: id})
+    return item
+  }catch(e){
+    throw Error('Error Retrieving Inventory Item')
+  }
+
+}
+// =============================================================================
+
+
 // asynchronous function to create an inventory item
 // =============================================================================
 exports.createInventoryItem = async function(inventoryItem){

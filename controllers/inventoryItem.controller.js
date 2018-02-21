@@ -24,6 +24,22 @@ exports.getInventoryItems = async function(req, res, next){
 // =============================================================================
 
 
+// async controller for getting an inventory item
+// =============================================================================
+exports.getInventoryItem = async function(req, res, next){
+
+  // try/catch retrieve and return inventory item
+  try{
+    var inventoryItem = await InventoryItemService.getInventoryItem(req.params.id)
+    return res.status(200).json({status: 200, data: inventoryItem, message: "Successfully Retrieved Inventory Item"})
+  }catch(e){
+    return res.status(400).json({status: 400, message: e.message})
+  }
+
+}
+// =============================================================================
+
+
 // async controller for create inventory item
 // =============================================================================
 exports.createInventoryItem = async function(req, res, next){

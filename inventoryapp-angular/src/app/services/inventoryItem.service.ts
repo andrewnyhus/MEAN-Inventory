@@ -37,6 +37,18 @@ export class InventoryItemService {
   // ===========================================================================
 
 
+  // get inventory item request, returns server response
+  // ===========================================================================
+  getInventoryItem(id:string): Observable<InventoryItem>{
+    var url = `${this.inventoryItemUrl}/${id}`;
+    return this.http.get(url).map(res => {
+      return res["data"] as InventoryItem;//["data"] as InventoryItem[];
+    });
+
+  }
+  // ===========================================================================
+
+
   // update inventory item request, returns server response
   // ===========================================================================
   updateInventoryItem(inventoryItem:InventoryItem){

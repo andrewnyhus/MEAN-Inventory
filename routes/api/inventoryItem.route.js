@@ -6,6 +6,7 @@ var InventoryItemController = require('../../controllers/inventoryItem.controlle
 // Map API to Controller Functions
 
 router.get('/', InventoryItemController.getInventoryItems)
+router.get('/:id', InventoryItemController.getInventoryItem)
 router.post('/', InventoryItemController.createInventoryItem)
 router.put('/', InventoryItemController.updateInventoryItem)
 router.delete('/:id', InventoryItemController.deleteInventoryItem)

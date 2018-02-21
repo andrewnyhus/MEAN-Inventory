@@ -1,0 +1,65 @@
+@import '../../utilities/variables.scss';
+
+
+.inventoryItemDetail{
+  min-width: $viewContainerEdgeSize;
+  max-width: $viewContainerEdgeSize;
+  margin-left: (100vw - $viewContainerEdgeSize)/2;
+  margin-right: (100vw - $viewContainerEdgeSize)/2;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+
+
+}
+
+
+.itemTitle{
+  text-align: center;
+  min-width: $viewContainerEdgeSize;
+  max-width: $viewContainerEdgeSize;
+  margin-top: 2vw;
+}
+
+
+.imageContainer{
+  min-width: $viewContainerEdgeSize/3;
+  max-width: $viewContainerEdgeSize/3;
+  min-height: $viewContainerEdgeSize/3;
+  max-height: $viewContainerEdgeSize/3;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-bottom: 2vw;
+
+  background-color: $gray;
+
+}
+
+
+.attributesContainer{
+  min-width: $viewContainerEdgeSize/1.8;
+  max-width: $viewContainerEdgeSize/1.8;
+  min-height: $viewContainerEdgeSize/3;
+  max-height: $viewContainerEdgeSize/3;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-bottom: 2vw;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+
+.keywordListItem{
+  display:inline;
+  background-color:$gray;
+  border-radius: 5px;
+  margin: .3vw;
+  text-align: center;
+  font-size: 12px;
+}

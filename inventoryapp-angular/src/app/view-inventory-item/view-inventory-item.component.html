@@ -1,3 +1,31 @@
-<p>
-  view-inventory-item works!
-</p>
+
+
+<div class="inventoryItemDetail" *ngIf="isDataAvailable">
+
+  <h2
+  *ngIf="inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title.length > 0; else showUntitledAnchor"
+  class="itemTitle">
+      {{inventoryItem.title}}
+  </h2>
+  <ng-template #showUntitledAnchor>
+    <h2 class="itemTitle"> Untitled Item </h2>
+  </ng-template>
+
+  <div class="imageContainer">No Image</div>
+
+  <div class="attributesContainer">
+    <!-- date, description, keywords -->
+    <div class="dateCreatedLabel">Created: {{readableDateString}}</div>
+    <p class="descriptionParagraph">Description: {{inventoryItem.description}}</p>
+
+
+    <ul class="keywordsDisplay">
+    Relevant Keywords:
+      <li class="keywordListItem" *ngFor="let keyword of inventoryItem.keywords">
+        {{"  "+keyword+"  "}}
+      </li>
+    </ul>
+
+  </div>
+
+</div>
