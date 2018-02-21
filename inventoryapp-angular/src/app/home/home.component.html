@@ -2,7 +2,6 @@
 <div class="inventoryItemsOverviewContainer">
 
   <div *ngFor="let inventoryItem of inventoryItemsList" class="inventoryItemOverview">
-    <div class="thumbnailContainer"></div>
 
 
     <!-- Add link, insert title or "Untitled" -->
@@ -10,10 +9,16 @@
     <a
       *ngIf="inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title.length > 0; else showUntitledAnchor"
       [routerLink]="['/view-inventory-item', inventoryItem._id]">
+
+        <div class="thumbnailContainer"></div>
         {{inventoryItem.title}}
     </a>
     <ng-template #showUntitledAnchor>
-      <a [routerLink]="['/view-inventory-item', inventoryItem._id]">Untitled Item</a>
+      <a [routerLink]="['/view-inventory-item', inventoryItem._id]">
+
+        <div class="thumbnailContainer"></div>
+        Untitled Item
+      </a>
     </ng-template>
 
 

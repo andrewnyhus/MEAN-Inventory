@@ -18,14 +18,14 @@ export class ViewInventoryItemComponent implements OnInit, OnDestroy {
   private sub: any;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
     // inject inventory item service
-    private inventoryItemService: InventoryItemService;
+    private inventoryItemService: InventoryItemService
   ) { }
 
 
   getReadableDate(){
-    var dateString = this.inventoryItem.date;
+    var dateString = this.inventoryItem.date.toString();
 
     var YYYYMMDD = dateString.split("T")[0];
     var dateSplit = YYYYMMDD.split('-');

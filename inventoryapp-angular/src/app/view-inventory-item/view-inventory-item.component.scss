@@ -47,11 +47,18 @@
   margin-right: 2vw;
   margin-bottom: 2vw;
 
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: flex-start;
 
+}
+
+
+.dateCreatedLabel, .descriptionParagraph, .keywordsDisplay {
+  display: block;
+
+}
+
+
+.keywordsDisplay {
+  padding-left: 0px;
 }
 
 

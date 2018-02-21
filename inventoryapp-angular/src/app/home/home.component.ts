@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     // inject inventory item service
-    private inventoryItemService: InventoryItemService;
+    private inventoryItemService: InventoryItemService,
   ){
   }
 

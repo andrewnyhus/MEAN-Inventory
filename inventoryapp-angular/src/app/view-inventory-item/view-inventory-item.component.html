@@ -15,12 +15,12 @@
 
   <div class="attributesContainer">
     <!-- date, description, keywords -->
-    <div class="dateCreatedLabel">Created: {{readableDateString}}</div>
-    <p class="descriptionParagraph">Description: {{inventoryItem.description}}</p>
+    <div class="dateCreatedLabel"><b>Created:</b> {{readableDateString}}</div>
+    <p class="descriptionParagraph"><b>Description:</b> {{inventoryItem.description}}</p>
 
 
     <ul class="keywordsDisplay">
-    Relevant Keywords:
+    <b>Relevant Keywords:</b>
       <li class="keywordListItem" *ngFor="let keyword of inventoryItem.keywords">
         {{"  "+keyword+"  "}}
       </li>

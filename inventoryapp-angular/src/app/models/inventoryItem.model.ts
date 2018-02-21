@@ -7,11 +7,11 @@ class InventoryItem {
     image: [string, string];
 
     constructor(){
-      this.date: new Date()
-      this.title: ""
-      this.description: ""
-      this.keywords: []
-      this.image: ["", ""]
+      this.date;//: new Date();
+      this.title;//: "";
+      this.description;//: "";
+      this.keywords;//: [];
+      this.image;//: ["", ""];
     }
 
 }
