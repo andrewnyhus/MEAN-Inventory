@@ -1,6 +1,4 @@
 import { Response } from '@angular/http';
-import { InventoryItemService } from './services/inventoryItem.service';
-import InventoryItem from './models/inventoryItem.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +10,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     // injecting InventoryItemService into the app component
-    private inventoryItemService: InventoryItemService
+    // private inventoryItemService: InventoryItemService
   ){ }
 
   /*
@@ -29,16 +27,16 @@ export class AppComponent implements OnInit {
   // create an empty list for tracking editable inventory items
   public updateInventoryItems: InventoryItem[] = [];
 
-
+  */
   // on the initialization of the app component
   ngOnInit(): void {
     // get and store list of inventory items
-    this.inventoryItemService.getInventoryItems().subscribe(inventoryItems => {
+    /*this.inventoryItemService.getInventoryItems().subscribe(inventoryItems => {
       this.inventoryItemsList = inventoryItems;
       console.log(inventoryItems);
-    })
+    })*/
   }
-
+  /*
 
   // process new inventory item keywords input string
   applyKeywords(): void {
