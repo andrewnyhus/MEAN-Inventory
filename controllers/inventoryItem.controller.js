@@ -44,12 +44,34 @@ exports.getInventoryItem = async function(req, res, next){
 // =============================================================================
 exports.createInventoryItem = async function(req, res, next){
 
+  var image = null;
+
+  // if image is attached, attach it to the inventory item
+  if (req.body.image && req.body.image.value && req.body.image.filetype && req.body.image.filename){
+
+    // get id, file name, file type, and the image data string
+    var id = req.body.id
+    var filename = req.body.image.filename
+    var filetype = req.body.image.filetype
+    var encodedImageDataString = req.body.image.value
+
+    // validate file type (if not png or jpeg, return error)
+    if (!(filetype === "image/png" || filetype === "image/jpeg")){
+      return res.status(400).send("Item creation failed, Invalid image extension, must be png or jpeg.")
+    }
+
+    // decode image and store it
+    image = {data: new Buffer(encodedImageDataString, 'base64'), contentType: filetype}
+
+  }
+
+
   // store information from the submitted form
   var inventoryItem = {
     title: req.body.title ? req.body.title : null,
     description: req.body.description ? req.body.description : null,
     keywords: req.body.keywords ? req.body.keywords : null,
-    image: null//req.body.image ? new Buffer(req.body.image) : null
+    image: image
   }
 
   // try/catch create and return inventory item

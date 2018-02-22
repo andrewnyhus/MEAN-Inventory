@@ -45,7 +45,7 @@ export class CreateInventoryItemComponent implements OnInit {
       let file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.itemImage = {
+        this.newInventoryItem.image = {
           filename: file.name,
           filetype: file.type,
           value: reader.result.split(',')[1]
@@ -66,11 +66,8 @@ export class CreateInventoryItemComponent implements OnInit {
         // get item, redirect to item detail view
         var createdItem = res.data;
 
-        // on successfully item creation, upload image
-        this.inventoryItemService.uploadInventoryItemImage(createdItem._id, this.itemImage).subscribe(
-        (res) => {
-          console.log("image uploaded successfully");
-        })
+        console.log("createdItem");
+        console.log(createdItem)
 
         // navigate to newly created item detail
         this.router.navigate([`view-inventory-item/${createdItem._id}`]);
