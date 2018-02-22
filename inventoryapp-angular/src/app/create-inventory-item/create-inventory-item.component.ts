@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { InventoryItemService } from '../services/inventoryItem.service';
 import InventoryItem from '../models/inventoryItem.model';
@@ -10,6 +10,8 @@ import InventoryItem from '../models/inventoryItem.model';
 })
 export class CreateInventoryItemComponent implements OnInit {
 
+  @ViewChild('imageUploader') imageUploader;
+
   constructor(
     // inject InventoryItemService
     private inventoryItemService: InventoryItemService,
@@ -18,19 +20,40 @@ export class CreateInventoryItemComponent implements OnInit {
 
   // create blank item
   public newInventoryItem: InventoryItem = new InventoryItem();
-
   // create string for keywords input
   public newInventoryItemKeywords: string = "";
+  // create buffer for image
+  private itemImage: any = null;
+
 
   ngOnInit() {
 
   }
+
 
   // processes and saves keywords input string
   applyKeywords(): void {
     this.newInventoryItem.keywords = this.newInventoryItemKeywords.split(' ')
     .filter(keyword => keyword !== "");
   }
+
+
+  // process selected image
+  selectImage(event): void {
+    let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.itemImage = {
+          filename: file.name,
+          filetype: file.type,
+          value: reader.result.split(',')[1]
+        };
+      };
+    }
+  }
+
 
   // submits new inventory item
   create() {
@@ -42,6 +65,14 @@ export class CreateInventoryItemComponent implements OnInit {
       (res) => {
         // get item, redirect to item detail view
         var createdItem = res.data;
+
+        // on successfully item creation, upload image
+        this.inventoryItemService.uploadInventoryItemImage(createdItem._id, this.itemImage).subscribe(
+        (res) => {
+          console.log("image uploaded successfully");
+        })
+
+        // navigate to newly created item detail
         this.router.navigate([`view-inventory-item/${createdItem._id}`]);
       })
 

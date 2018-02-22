@@ -1,7 +1,6 @@
 import InventoryItem from '../models/inventoryItem.model';
 import { Observable } from 'rxjs/Rx';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Response } from '@angular/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 // RxJS operator for mapping observable
@@ -53,6 +52,15 @@ export class InventoryItemService {
   // ===========================================================================
   updateInventoryItem(inventoryItem:InventoryItem){
     return this.http.put(`${this.inventoryItemUrl}`, inventoryItem);
+  }
+  // ===========================================================================
+
+
+  // upload inventory item image request, returns server response
+  // ===========================================================================
+  uploadInventoryItemImage(id:string, image:any){
+    return this.http.post(`${this.inventoryItemUrl}/upload-inventory-item-image/${id}`,
+      image);
   }
   // ===========================================================================
 

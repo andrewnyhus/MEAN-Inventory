@@ -71,6 +71,22 @@ exports.createInventoryItem = async function(inventoryItem){
 // =============================================================================
 
 
+// asynchronous function for uploading an inventory item
+// =============================================================================
+exports.uploadInventoryItemImage = async function(inventoryItemId, image){
+  try{
+    var item = await InventoryItem.findById({_id: inventoryItemId})
+    item.image = image
+    var savedItem = item.save()
+    return savedItem
+
+  }catch(e){
+    throw Error('Error uploading image e: '+ e)
+  }
+}
+// =============================================================================
+
+
 // asynchronous function to update an inventory item
 // =============================================================================
 exports.updateInventoryItem = async function(inventoryItem){

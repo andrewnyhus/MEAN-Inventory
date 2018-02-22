@@ -4,7 +4,7 @@ class InventoryItem {
     title: string;
     description: string;
     keywords: string[];
-    image: [string, string];
+    image: any;
 
     constructor(){
       this.date;//: new Date();
