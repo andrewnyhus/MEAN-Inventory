@@ -10,8 +10,6 @@ import InventoryItem from '../models/inventoryItem.model';
 })
 export class CreateInventoryItemComponent implements OnInit {
 
-  @ViewChild('imageUploader') imageUploader;
-
   constructor(
     // inject InventoryItemService
     private inventoryItemService: InventoryItemService,
@@ -22,8 +20,9 @@ export class CreateInventoryItemComponent implements OnInit {
   public newInventoryItem: InventoryItem = new InventoryItem();
   // create string for keywords input
   public newInventoryItemKeywords: string = "";
-  // create buffer for image
-  private itemImage: any = null;
+
+  // get image uploader
+  @ViewChild("imageUploader") imageUploader;
 
 
   ngOnInit() {
@@ -37,21 +36,12 @@ export class CreateInventoryItemComponent implements OnInit {
     .filter(keyword => keyword !== "");
   }
 
-
-  // process selected image
-  selectImage(event): void {
-    let reader = new FileReader();
-    if(event.target.files && event.target.files.length > 0) {
-      let file = event.target.files[0];
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.newInventoryItem.image = {
-          filename: file.name,
-          filetype: file.type,
-          value: reader.result.split(',')[1]
-        };
-      };
-    }
+  // handler for image being selected
+  imageSelected($event){
+    console.log("image selected: ");
+    console.log($event);
+    this.newInventoryItem.image = $event;
+    //this.newInventoryItem.image =
   }
 
 
@@ -59,6 +49,9 @@ export class CreateInventoryItemComponent implements OnInit {
   create() {
     // process and save keywords
     this.applyKeywords();
+
+    console.log("new inventory item:");
+    console.log(this.newInventoryItem);
 
     // submit inventory item
     this.inventoryItemService.createInventoryItem(this.newInventoryItem).subscribe(
@@ -70,7 +63,7 @@ export class CreateInventoryItemComponent implements OnInit {
         console.log(createdItem)
 
         // navigate to newly created item detail
-        this.router.navigate([`view-inventory-item/${createdItem._id}`]);
+        //this.router.navigate([`view-inventory-item/${createdItem._id}`]);
       })
 
   }

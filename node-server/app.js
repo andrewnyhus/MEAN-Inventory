@@ -4,12 +4,12 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
+var multer = require('multer')
 var bluebird = require('bluebird')
 
 var index = require('./routes/index')
 var users = require('./routes/users')
 var api = require('./routes/api.route')
-//var fileUpload = require('express-fileupload')
 
 var app = express()
 
@@ -24,6 +24,23 @@ app.use(function(req, res, next) {
   next()
 })
 // =============================================================================
+
+
+// Handle Image Uploads
+// =============================================================================
+var storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, 'public/images/inventoryItems')
+  },
+  filename: (req, file, callback) => {
+    callback(null, file.fieldname)
+  }
+})
+
+//var upload = 
+// =============================================================================
+
+
 
 
 // view engine setup

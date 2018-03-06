@@ -1,6 +1,11 @@
 <form #inventoryItemForm>
 
-  <input type="file" #imageUploader id="imageUploader" (change)="selectImage($event)" placeholder="Upload Image" accept="image/png, image/jpeg" /><br>
+  <app-upload-inventory-item-image #imageUploader
+    [itemImage]="newInventoryItem.image"
+    (imageSelected)="imageSelected($event)"
+  >
+  </app-upload-inventory-item-image>
+
   <br>
   <input type="text" name="title" id="title" [(ngModel)]="newInventoryItem.title" placeholder="Title" class="form-control"/>
 

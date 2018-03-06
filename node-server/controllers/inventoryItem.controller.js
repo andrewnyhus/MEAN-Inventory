@@ -47,7 +47,7 @@ exports.createInventoryItem = async function(req, res, next){
   var image = null;
 
   // if image is attached, attach it to the inventory item
-  if (req.body.image && req.body.image.value && req.body.image.filetype && req.body.image.filename){
+  if (req.body && req.body.image && req.body.image.value && req.body.image.filetype && req.body.image.filename){
 
     // get id, file name, file type, and the image data string
     var id = req.body.id
@@ -61,7 +61,7 @@ exports.createInventoryItem = async function(req, res, next){
     }
 
     // decode image and store it
-    image = {data: new Buffer(encodedImageDataString, 'base64'), contentType: filetype}
+    //image = {data: new Buffer(encodedImageDataString, 'base64'), contentType: filetype}
 
   }
 

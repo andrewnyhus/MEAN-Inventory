@@ -11,13 +11,15 @@ import { CreateInventoryItemComponent } from './create-inventory-item/create-inv
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewInventoryItemComponent } from './view-inventory-item/view-inventory-item.component';
+import { UploadInventoryItemImageComponent } from './upload-inventory-item-image/upload-inventory-item-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CreateInventoryItemComponent,
-    ViewInventoryItemComponent
+    ViewInventoryItemComponent,
+    UploadInventoryItemImageComponent
   ],
   imports: [
     AppRoutingModule,

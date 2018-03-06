@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InventoryItemService } from '../services/inventoryItem.service';
 import InventoryItem from '../models/inventoryItem.model';
@@ -11,11 +11,16 @@ import InventoryItem from '../models/inventoryItem.model';
 })
 export class ViewInventoryItemComponent implements OnInit, OnDestroy {
 
+  @ViewChild("imageElement") imageElement: ElementRef;
+  @ViewChild("imageContainer") imageContainer: ElementRef;
+
+
   id: string;
   readableDateString: string;
-  inventoryItem: InventoryItem;
+  public inventoryItem: InventoryItem;
   isDataAvailable: boolean = false;
   private sub: any;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -34,14 +39,22 @@ export class ViewInventoryItemComponent implements OnInit, OnDestroy {
     this.readableDateString = hhmmss +" "+ dateSplit[1] +"/"+ dateSplit[2] +"/"+ dateSplit[0];
   }
 
+
   ngOnInit() {
+
     this.sub = this.route.params.subscribe(params => {
       // gets and casts id
-      this.id = params['id'];
+      this.id = params.id;
 
       // retrieve corresponding item from server
-      this.inventoryItemService.getInventoryItem(this.id).subscribe(inventoryItem => {
-        this.inventoryItem = inventoryItem;
+      this.inventoryItemService.getInventoryItem(this.id).subscribe(loadedInventoryItem => {
+        if(loadedInventoryItem.image){
+          var imageType = loadedInventoryItem.image.contentType;
+          var imageData = loadedInventoryItem.image.data;
+          this.imageElement.nativeElement.src = 'data:'+ imageType +';,'+imageData;
+        }
+
+        this.inventoryItem = loadedInventoryItem;
         this.getReadableDate();
         this.isDataAvailable = true;
       })
@@ -51,6 +64,7 @@ export class ViewInventoryItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
+    console.log("ngOnDestroy");
     this.sub.unsubscribe();
   }
 

@@ -1,0 +1,8 @@
+<div #imageContainer class="imageContainer" >
+  <img #imageElement class="imageElement">
+  <button #editImageButton type="button" class="btn btn-primary" name="editImageButton">
+    <span class="glyphicon glyphicon-pencil"></span>
+  </button>
+</div>
+
+<input type="file" id="imageInput" name="imageInput" (change)="selectImage($event)" placeholder="Upload Image" accept="image/png, image/jpeg" /><br>

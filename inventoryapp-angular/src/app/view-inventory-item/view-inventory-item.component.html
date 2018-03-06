@@ -1,9 +1,9 @@
 
 
-<div class="inventoryItemDetail" *ngIf="isDataAvailable">
+<div class="inventoryItemDetail" [hidden]="!isDataAvailable">
 
   <h2
-  *ngIf="inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title.length > 0; else showUntitledAnchor"
+  *ngIf="isDataAvailable && inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title.length > 0; else showUntitledAnchor"
   class="itemTitle">
       {{inventoryItem.title}}
   </h2>
@@ -11,15 +11,14 @@
     <h2 class="itemTitle"> Untitled Item </h2>
   </ng-template>
 
-  <div class="imageContainer">No Image</div>
 
-  <div class="attributesContainer">
+  <div class="attributesContainer" *ngIf="isDataAvailable">
     <!-- date, description, keywords -->
     <div class="dateCreatedLabel"><b>Created:</b> {{readableDateString}}</div>
     <p class="descriptionParagraph"><b>Description:</b> {{inventoryItem.description}}</p>
 
 
-    <ul class="keywordsDisplay">
+    <ul class="keywordsDisplay" >
     <b>Relevant Keywords:</b>
       <li class="keywordListItem" *ngFor="let keyword of inventoryItem.keywords">
         {{"  "+keyword+"  "}}
