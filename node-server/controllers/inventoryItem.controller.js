@@ -110,15 +110,29 @@ exports.uploadInventoryItemImage = async function(req, res, next){
 
 
     // decode image and store it
-    var image = {data: new Buffer(encodedImageDataString, 'base64'), contentType: filetype}
+    //var image = {data: new Buffer(encodedImageDataString, 'base64'), contentType: filetype}
 
-    var storedImage = await InventoryItemService.uploadInventoryItemImage(id, image)
+    //var storedImage = await InventoryItemService.uploadInventoryItemImage(id, image)
     return res.status(200).json({status: 200, data: {}, message: "Successfully Uploaded Image"})
   }catch (e){
     console.log("While uploading image: " + e)
     return res.status(400).json({status: 400, message: "Image Upload Failed"})
   }
 
+}
+// =============================================================================
+
+
+// async controller for deleting an inventory item image
+// =============================================================================
+exports.deleteInventoryItemImage = async function(req, res, next){
+}
+// =============================================================================
+
+
+// async controller for replacing an inventory item image
+// =============================================================================
+exports.replaceInventoryItemImage = async function(req, res, next){
 }
 // =============================================================================
 

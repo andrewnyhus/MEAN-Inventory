@@ -87,6 +87,20 @@ exports.uploadInventoryItemImage = async function(inventoryItemId, image){
 // =============================================================================
 
 
+// asynchronous function for deleting an inventory item
+// =============================================================================
+exports.deleteInventoryItemImage = async function(inventoryItemId, image){
+}
+// =============================================================================
+
+
+// asynchronous function for replacing an inventory item
+// =============================================================================
+exports.replaceInventoryItemImage = async function(inventoryItemId, image){
+}
+// =============================================================================
+
+
 // asynchronous function to update an inventory item
 // =============================================================================
 exports.updateInventoryItem = async function(inventoryItem){

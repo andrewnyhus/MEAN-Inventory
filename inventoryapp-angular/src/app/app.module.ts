@@ -11,7 +11,8 @@ import { CreateInventoryItemComponent } from './create-inventory-item/create-inv
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewInventoryItemComponent } from './view-inventory-item/view-inventory-item.component';
-import { UploadInventoryItemImageComponent } from './upload-inventory-item-image/upload-inventory-item-image.component';
+import { EditImageComponent } from './edit-image/edit-image.component';
+import { ViewImagesComponent } from './view-images/view-images.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UploadInventoryItemImageComponent } from './upload-inventory-item-image
     HomeComponent,
     CreateInventoryItemComponent,
     ViewInventoryItemComponent,
-    UploadInventoryItemImageComponent
+    EditImageComponent,
+    ViewImagesComponent
   ],
   imports: [
     AppRoutingModule,

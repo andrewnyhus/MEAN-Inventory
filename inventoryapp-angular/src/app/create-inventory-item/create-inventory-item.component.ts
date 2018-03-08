@@ -36,14 +36,6 @@ export class CreateInventoryItemComponent implements OnInit {
     .filter(keyword => keyword !== "");
   }
 
-  // handler for image being selected
-  imageSelected($event){
-    console.log("image selected: ");
-    console.log($event);
-    this.newInventoryItem.image = $event;
-    //this.newInventoryItem.image =
-  }
-
 
   // submits new inventory item
   create() {
@@ -59,7 +51,7 @@ export class CreateInventoryItemComponent implements OnInit {
         // get item, redirect to item detail view
         var createdItem = res.data;
 
-        console.log("createdItem");
+        console.log("createdItem: ");
         console.log(createdItem)
 
         // navigate to newly created item detail

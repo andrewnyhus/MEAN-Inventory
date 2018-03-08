@@ -7,7 +7,7 @@ var InventoryItemSchema = new mongoose.Schema({
     title: String,
     description: String,
     keywords: [String],
-    image: { path: String, contentType: String }
+    images: [{ path: String, contentType: String }]
 })
 
 InventoryItemSchema.plugin(mongoosePaginate)

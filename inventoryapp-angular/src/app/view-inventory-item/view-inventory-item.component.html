@@ -2,8 +2,9 @@
 
 <div class="inventoryItemDetail" [hidden]="!isDataAvailable">
 
+
   <h2
-  *ngIf="isDataAvailable && inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title.length > 0; else showUntitledAnchor"
+  *ngIf="isDataAvailable && inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title !== ''; else showUntitledAnchor"
   class="itemTitle">
       {{inventoryItem.title}}
   </h2>
@@ -11,8 +12,12 @@
     <h2 class="itemTitle"> Untitled Item </h2>
   </ng-template>
 
+  <div *ngIf="isDataAvailable">
+    <app-view-images [images]="this.inventoryItem.images"></app-view-images>
+  </div>
 
   <div class="attributesContainer" *ngIf="isDataAvailable">
+
     <!-- date, description, keywords -->
     <div class="dateCreatedLabel"><b>Created:</b> {{readableDateString}}</div>
     <p class="descriptionParagraph"><b>Description:</b> {{inventoryItem.description}}</p>

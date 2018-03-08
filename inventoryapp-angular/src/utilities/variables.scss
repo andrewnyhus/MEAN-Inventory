@@ -6,3 +6,7 @@ $viewContainerEdgeSize: 90vw;
 // pertaining to inventory item overview
 $inventoryItemsOverviewHeight: 22vw;
 $thumbnailContainerEdgeSize: 18vw;
+
+// pertaining to inventory item detail
+$inventoryItemImageMaxEdgeSize: $viewContainerEdgeSize/2.7;
+$detailThumbnailMaxEdgeSize: $inventoryItemImageMaxEdgeSize/3;

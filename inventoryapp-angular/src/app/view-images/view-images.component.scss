@@ -1,0 +1,82 @@
+@import '../../utilities/variables.scss';
+
+
+.viewImagesContainer{
+  min-width: $inventoryItemImageMaxEdgeSize;
+  max-width: $inventoryItemImageMaxEdgeSize;
+}
+
+
+// =============================================================================
+.imageContainer>img{
+  width: 100%;
+  background-color: $gray;
+}
+
+.imageContainer{
+  min-width: $inventoryItemImageMaxEdgeSize;
+  max-width: $inventoryItemImageMaxEdgeSize;
+  min-height: $inventoryItemImageMaxEdgeSize;
+  max-height: $inventoryItemImageMaxEdgeSize;
+  background-color: $gray;
+}
+// =============================================================================
+
+// =============================================================================
+.imageController{
+  min-width: $inventoryItemImageMaxEdgeSize;
+  max-width: $inventoryItemImageMaxEdgeSize;
+  background-color:white;
+
+  border-style: solid;
+  border-color: $gray;
+  border-width: thin;
+}
+
+.previousImageButton {
+  height: 100%;
+  float: left;
+}
+
+.nextImageButton {
+  height: 100%;
+  float: right;
+}
+
+.thumbnailsFlexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.thumbnailButton > img{
+  width: 100%;
+  background-color: $gray;
+}
+
+.thumbnailContainer .thumbnailButton{
+  min-width: $detailThumbnailMaxEdgeSize;
+  max-width: $detailThumbnailMaxEdgeSize;
+  min-height: $detailThumbnailMaxEdgeSize;
+  max-height: $detailThumbnailMaxEdgeSize;
+  background-color: $gray;
+}
+
+.thumbnailContainer {
+  margin: 3px;
+}
+
+.thumbnailButton {
+  border-color: $gray;
+  border-width: thin;
+}
+
+.thumbnailButton.selected {
+  border-color: black;
+  border-width: thin;
+}
+
+
+// =============================================================================

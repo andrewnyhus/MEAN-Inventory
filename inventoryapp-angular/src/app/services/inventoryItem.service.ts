@@ -65,6 +65,25 @@ export class InventoryItemService {
   // ===========================================================================
 
 
+  // delete inventory item image request, returns server response
+  // ===========================================================================
+  deleteInventoryItemImage(id:string, image:any){
+    return this.http.post(`${this.inventoryItemUrl}/delete-inventory-item-image/${id}`,
+      image);
+  }
+  // ===========================================================================
+
+
+  // replace inventory item image request, returns server response
+  // ===========================================================================
+  replaceInventoryItemImage(id:string, image:any){
+    return this.http.post(`${this.inventoryItemUrl}/replace-inventory-item-image/${id}`,
+      image);
+  }
+  // ===========================================================================
+
+
+
   // delete inventory item request, returns server response
   // ===========================================================================
   deleteInventoryItem(id:string):any{

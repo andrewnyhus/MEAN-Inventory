@@ -11,9 +11,6 @@ import InventoryItem from '../models/inventoryItem.model';
 })
 export class ViewInventoryItemComponent implements OnInit, OnDestroy {
 
-  @ViewChild("imageElement") imageElement: ElementRef;
-  @ViewChild("imageContainer") imageContainer: ElementRef;
-
 
   id: string;
   readableDateString: string;
@@ -36,7 +33,7 @@ export class ViewInventoryItemComponent implements OnInit, OnDestroy {
     var dateSplit = YYYYMMDD.split('-');
     var hhmmss = dateString.split("T")[1].split(".")[0];
 
-    this.readableDateString = hhmmss +" "+ dateSplit[1] +"/"+ dateSplit[2] +"/"+ dateSplit[0];
+    this.readableDateString = dateSplit[1] +"/"+ dateSplit[2] +"/"+ dateSplit[0] +" "+ hhmmss +" (GMT)";
   }
 
 
@@ -48,14 +45,9 @@ export class ViewInventoryItemComponent implements OnInit, OnDestroy {
 
       // retrieve corresponding item from server
       this.inventoryItemService.getInventoryItem(this.id).subscribe(loadedInventoryItem => {
-        if(loadedInventoryItem.image){
-          var imageType = loadedInventoryItem.image.contentType;
-          var imageData = loadedInventoryItem.image.data;
-          this.imageElement.nativeElement.src = 'data:'+ imageType +';,'+imageData;
-        }
-
         this.inventoryItem = loadedInventoryItem;
         this.getReadableDate();
+
         this.isDataAvailable = true;
       })
 

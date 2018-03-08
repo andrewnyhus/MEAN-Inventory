@@ -9,6 +9,8 @@ router.get('/', InventoryItemController.getInventoryItems)
 router.get('/:id', InventoryItemController.getInventoryItem)
 router.post('/', InventoryItemController.createInventoryItem)
 router.post('/upload-inventory-item-image/:id', InventoryItemController.uploadInventoryItemImage)
+router.post('/delete-inventory-item-image/:id', InventoryItemController.uploadInventoryItemImage)
+router.post('/replace-inventory-item-image/:id', InventoryItemController.uploadInventoryItemImage)
 router.put('/', InventoryItemController.updateInventoryItem)
 router.delete('/:id', InventoryItemController.deleteInventoryItem)
 
