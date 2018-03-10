@@ -15,7 +15,7 @@
       <!-- Container for thumbnail -->
       <div class="thumbnailContainer" *ngFor="let image of images; let i = index;">
         <button type="button" class="thumbnailButton" [class.selected]="i === selectedImageIndex" name="imageButton" (click)="selectImageAtIndex(i)">
-          <img src="{{image.path}}" alt="">
+          <img src="{{images[selectedImageIndex].path}}" alt="">
         </button>
       </div>
 

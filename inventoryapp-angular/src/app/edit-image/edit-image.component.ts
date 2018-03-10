@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edit-image',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-image.component.scss']
 })
 export class EditImageComponent implements OnInit {
+
+  @Input() images: any[];
 
   constructor() { }
 

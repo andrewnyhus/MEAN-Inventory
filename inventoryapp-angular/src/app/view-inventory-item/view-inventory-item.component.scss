@@ -4,8 +4,6 @@
 .inventoryItemDetail{
   min-width: $viewContainerEdgeSize;
   max-width: $viewContainerEdgeSize;
-  margin-left: (100vw - $viewContainerEdgeSize)/2;
-  margin-right: (100vw - $viewContainerEdgeSize)/2;
 
   display: flex;
   flex-wrap: wrap;
@@ -56,4 +54,8 @@
   text-align: center;
   font-size: 12px;
   padding: 5px;
+}
+
+.editButton {
+  float:right;
 }

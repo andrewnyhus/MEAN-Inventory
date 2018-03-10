@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-view-images',
@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ViewImagesComponent implements OnInit {
 
   @Input() images: any[];
+  @Output() emitSelectedIndex: EventEmitter<number> = new EventEmitter
+
   public selectedImageIndex: number;
   public selectedImagePath: string;
   public noImagesPlaceholderIsPresent: boolean;
@@ -33,7 +35,6 @@ export class ViewImagesComponent implements OnInit {
     Creates a "no images" placeholder, inserts and selects it
   */
   noImages(){
-
     // create placeholder
     let noImagesPlaceholder: any = {path: "http://localhost:3000/images/no-images.png", contentType: "image/png"};
 
@@ -53,16 +54,7 @@ export class ViewImagesComponent implements OnInit {
     Selects image at index, displays it.
   */
   selectImageAtIndex(index: number){
-    console.log("image at: " + index + " was selected, current selected index: " + this.selectedImageIndex);
-    // remove border from thumbnail of current image index
-
-    // update current image index
     this.selectedImageIndex = index;
-
-    // apply border to thumbnail at current image index
-
-    // set imageDisplay.src to that of image at index
-    this.selectedImagePath = this.images[index].path;
   }
 
 

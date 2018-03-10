@@ -4,67 +4,9 @@
   <li><a routerLink="create-inventory-item">Create Inventory Item</a></li>
 </ul>
 
-<router-outlet></router-outlet>
 
-
-<!--<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-
-     Display Inventory Items -->
-    <!-- ===================================================================
-    <div class="inventoryItems" *ngIf="inventoryItemsList">
-      <table class="table">
-        <thead class="h">
-          <tr class="h">
-            <th class="h">Title</th>
-            <th class="h">Description</th>
-            <th class="h">Date</th>
-            <th class="h">Keywords</th>
-            <th class="h">Image</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr class="inventoryItem" *ngFor="let inventoryItem of inventoryItemsList">
-
-            <td>{{ inventoryItem.title }}</td>
-            <td>{{ inventoryItem.date }}</td>
-            <td>{{ inventoryItem.description }}</td>
-            <td>{{ inventoryItem.keywords }}</td>
-            <td>{{ inventoryItem.image }}</td>
-
-            <td>
-              <button class="btn btn-danger" (click)="deleteInventoryItem(inventoryItem)">
-                  <i  class="fa fa-trash"></i>
-              </button>
-            </td>
-
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-     =================================================================== -->
-
-
-    <!-- Create New Inventory Item -->
-    <!-- ===================================================================
-    <form>
-      <div class="form-row">
-        <input type="text" name="title" id="title" [(ngModel)]="newInventoryItem.title" placeholder="Title" class="form-control">
-
-        <input name="description" id="description" [(ngModel)]="newInventoryItem.description" placeholder="Description" class="form-control">
-
-        <input name="keywords" id="keywords" [(ngModel)]="newInventoryItemKeywords" placeholder="Keywords (separated by spaces)" class="form-control">
-
-        <button type="submit" class="btn btn-primary" (click)="create()">Create Item</button>
-
-      </div>
-    </form>
-     ===================================================================
-
+<div class="panel panel-default">
+  <div class="panel-body">
+    <router-outlet></router-outlet>
   </div>
-
-  <div class="col-md-2"></div>
-</div>-->
+</div>

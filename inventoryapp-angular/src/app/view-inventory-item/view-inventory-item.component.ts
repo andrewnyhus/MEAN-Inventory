@@ -56,7 +56,6 @@ export class ViewInventoryItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    console.log("ngOnDestroy");
     this.sub.unsubscribe();
   }
 

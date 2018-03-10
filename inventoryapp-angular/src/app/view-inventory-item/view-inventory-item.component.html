@@ -3,26 +3,33 @@
 <div class="inventoryItemDetail" [hidden]="!isDataAvailable">
 
 
-  <h2
+  <h1
   *ngIf="isDataAvailable && inventoryItem.title !== null && inventoryItem.title !== undefined && inventoryItem.title !== ''; else showUntitledAnchor"
   class="itemTitle">
       {{inventoryItem.title}}
-  </h2>
+  </h1>
   <ng-template #showUntitledAnchor>
-    <h2 class="itemTitle"> Untitled Item </h2>
+    <h1 class="itemTitle"> Untitled Item </h1>
   </ng-template>
 
+
   <div *ngIf="isDataAvailable">
-    <app-view-images [images]="this.inventoryItem.images"></app-view-images>
+    <app-view-images [images]="inventoryItem.images"></app-view-images>
   </div>
+
 
   <div class="attributesContainer" *ngIf="isDataAvailable">
 
-    <!-- date, description, keywords -->
+    <!-- edit link -->
+    <a class="btn btn-primary btn-lg editButton" [routerLink]="['/edit-inventory-item', inventoryItem._id]">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+
+    <!-- date, description -->
     <div class="dateCreatedLabel"><b>Created:</b> {{readableDateString}}</div>
     <p class="descriptionParagraph"><b>Description:</b> {{inventoryItem.description}}</p>
 
-
+    <!-- keywords -->
     <ul class="keywordsDisplay" >
     <b>Relevant Keywords:</b>
       <li class="keywordListItem" *ngFor="let keyword of inventoryItem.keywords">

@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewInventoryItemComponent } from './view-inventory-item/view-inventory-item.component';
 import { EditImageComponent } from './edit-image/edit-image.component';
 import { ViewImagesComponent } from './view-images/view-images.component';
+import { EditInventoryItemComponent } from './edit-inventory-item/edit-inventory-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ViewImagesComponent } from './view-images/view-images.component';
     CreateInventoryItemComponent,
     ViewInventoryItemComponent,
     EditImageComponent,
-    ViewImagesComponent
+    ViewImagesComponent,
+    EditInventoryItemComponent
   ],
   imports: [
     AppRoutingModule,
