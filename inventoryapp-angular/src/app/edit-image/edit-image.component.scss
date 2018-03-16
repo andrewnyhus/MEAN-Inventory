@@ -1,1 +1,18 @@
 @import "../../utilities/variables.scss";
+
+
+.imageContainer{
+  min-width: $inventoryItemImageMaxEdgeSize;
+  max-width: $inventoryItemImageMaxEdgeSize;
+  min-height: $inventoryItemImageMaxEdgeSize;
+  max-height: $inventoryItemImageMaxEdgeSize;
+  background-color: $gray;
+  display: flex;
+  justify-content: center;
+}
+
+.imageElement{
+  max-width: $inventoryItemImageMaxEdgeSize;
+  max-height: $inventoryItemImageMaxEdgeSize;
+  object-fit: contain;
+}

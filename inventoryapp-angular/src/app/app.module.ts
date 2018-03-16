@@ -14,6 +14,8 @@ import { ViewInventoryItemComponent } from './view-inventory-item/view-inventory
 import { EditImageComponent } from './edit-image/edit-image.component';
 import { ViewImagesComponent } from './view-images/view-images.component';
 import { EditInventoryItemComponent } from './edit-inventory-item/edit-inventory-item.component';
+import { PopoverModule } from 'ngx-popover';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { EditInventoryItemComponent } from './edit-inventory-item/edit-inventory
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    PopoverModule
   ],
   providers: [
     InventoryItemService

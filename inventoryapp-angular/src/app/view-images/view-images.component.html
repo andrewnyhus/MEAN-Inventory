@@ -1,9 +1,11 @@
 <div class="viewImagesContainer">
 
   <!-- Image -->
-    <button type="button" class="btn btn-default imageContainer" name="button">
-      <img #imageDisplay id="imageDisplay" [src]="images[selectedImageIndex].path" alt="">
+  <div class="imageContainer">
+    <button type="button" class="btn btn-default imageButton" name="button">
+      <img #imageElement class="imageElement" [src]="images[selectedImageIndex].path" alt="">
     </button>
+  </div>
 
   <!-- Controller for selecting image -->
   <div class="imageController">
@@ -15,7 +17,7 @@
       <!-- Container for thumbnail -->
       <div class="thumbnailContainer" *ngFor="let image of images; let i = index;">
         <button type="button" class="thumbnailButton" [class.selected]="i === selectedImageIndex" name="imageButton" (click)="selectImageAtIndex(i)">
-          <img src="{{images[selectedImageIndex].path}}" alt="">
+          <img src="{{images[i].path}}" alt="">
         </button>
       </div>
 

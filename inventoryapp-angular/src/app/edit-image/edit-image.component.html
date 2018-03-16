@@ -2,9 +2,37 @@
 
 <div class="editImageToolbar">
 
-  <a tabindex="0" role="button" class="btn btn-primary" name="button">
+  <!--<button type="button" class="btn btn-primary" name="button">
     <span class="glyphicon glyphicon-plus"></span>
-  </a>
+  </button>-->
+
+    <!-- Add new image popover -->
+    <popover-content #myPopover
+        title="Add New Image"
+        placement="right"
+        [closeOnClickOutside]="true">
+
+        <form>
+          <div class="imageContainer">
+            <img #imageElement class="imageElement" src="" alt="">
+          </div>
+
+          <input #imageUploader type="file" name="imageUploader" accept="image/*" (change)="imageSelected($event)">
+          Image to upload: {{imageToUpload}}
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+    </popover-content>
+
+    <button type="button" class="btn btn-primary" [popover]="myPopover">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+
+
+
+
+
+
 
   <button type="button" class="btn btn-primary" name="button">
     <span class="glyphicon glyphicon-trash"></span>
