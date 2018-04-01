@@ -13,6 +13,7 @@ export class ViewImagesComponent implements OnInit {
   public selectedImageIndex: number;
   public selectedImagePath: string;
   public noImagesPlaceholderIsPresent: boolean;
+  public showModal: boolean = false;
 
 
   constructor() { }
@@ -40,6 +41,9 @@ export class ViewImagesComponent implements OnInit {
 
     // add placeholder to images
     this.images.push(noImagesPlaceholder);
+    this.images.push({path: "https://vignette.wikia.nocookie.net/mrmen/images/d/d2/Mrtallimage.png/revision/latest?cb=20130222100629"});
+    this.images.push({path: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRom67yfyFubT7NLjoLnSqGLZqEiCZ5jub2iyCf8kVgjT9W9XVe"});
+
 
     // indicate we have inserted the placeholder
     this.noImagesPlaceholderIsPresent = true;
@@ -54,7 +58,23 @@ export class ViewImagesComponent implements OnInit {
     Selects image at index, displays it.
   */
   selectImageAtIndex(index: number){
+
+    // wrap around
+    if(index + 1 > this.images.length){
+      index = 0;
+    }else if(index < 0){
+      index = this.images.length - 1;
+    }
+
     this.selectedImageIndex = index;
+  }
+
+
+  /*
+    Toggle Modal
+  */
+  toggleModal(){
+    this.showModal = !this.showModal;
   }
 
 

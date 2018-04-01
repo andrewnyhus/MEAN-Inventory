@@ -1,24 +1,78 @@
 @import '../../utilities/variables.scss';
 
 
+.parentImageViewer{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+  height: auto;
+}
+
 .viewImagesContainer{
-  min-width: $inventoryItemImageMaxEdgeSize;
-  max-width: $inventoryItemImageMaxEdgeSize;
+  display: inline-flex;
+  justify-content: flex-start;
+  margin-left: 0px;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+}
+
+.viewImagesModal{
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  background-color: $modalBlackBG;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+// Modal
+// =============================================================================
+.imageContainerModal{
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.0);
+  display: flex;
+
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.imageButtonModal{
+  max-width: 80vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+
+  padding: 0px;
+  border: 0px;
+}
+
+.imageElementModal{
+  max-width: inherit;
+  max-height: inherit;
+
+  object-fit: contain;
 }
 
 
 // =============================================================================
 
-.imageContainer{
-  min-width: $inventoryItemImageMaxEdgeSize;
-  max-width: $inventoryItemImageMaxEdgeSize;
-  min-height: $inventoryItemImageMaxEdgeSize;
-  max-height: $inventoryItemImageMaxEdgeSize;
-  background-color: $gray;
-  display: flex;
-  justify-content: center;
-}
 
+
+// Image
+// =============================================================================
 .imageButton{
   min-width: $inventoryItemImageMaxEdgeSize;
   max-width: $inventoryItemImageMaxEdgeSize;
@@ -30,77 +84,31 @@
 }
 
 .imageElement{
-  max-width: $inventoryItemImageMaxEdgeSize;
-  max-height: $inventoryItemImageMaxEdgeSize;
+  max-width: inherit;
+  max-height: inherit;
+
   background-color: $gray;
   object-fit: contain;
 }
 
 // =============================================================================
 
+
+// controller
 // =============================================================================
-.imageController{
-  min-width: $inventoryItemImageMaxEdgeSize;
-  max-width: $inventoryItemImageMaxEdgeSize;
-  background-color:white;
-
-  border-style: solid;
-  border-color: $gray;
-  border-width: thin;
-}
-
 .previousImageButton {
-  height: 100%;
+  height: inherit;
   float: left;
 }
 
 .nextImageButton {
-  height: 100%;
+  height: inherit;
   float: right;
 }
 
-.thumbnailsFlexbox {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.imageLabel{
+  width: 100%;
+  text-align:center;
 }
-
-
-.thumbnailButton > img{
-  background-color: $gray;
-  max-width: $detailThumbnailMaxEdgeSize;
-  max-height: $detailThumbnailMaxEdgeSize;
-}
-
-.thumbnailContainer .thumbnailButton{
-  min-width: $detailThumbnailMaxEdgeSize;
-  max-width: $detailThumbnailMaxEdgeSize;
-  min-height: $detailThumbnailMaxEdgeSize;
-  max-height: $detailThumbnailMaxEdgeSize;
-  background-color: $gray;
-}
-
-.thumbnailContainer {
-  max-width: $detailThumbnailMaxEdgeSize;
-  max-height: $detailThumbnailMaxEdgeSize;
-  margin: 3px;
-}
-
-.thumbnailButton {
-  max-width: $detailThumbnailMaxEdgeSize;
-  max-height: $detailThumbnailMaxEdgeSize;
-  border-color: $gray;
-  border-width: thin;
-  object-fit: contain;
-  padding: 0px;
-  border: 0px;
-}
-
-.thumbnailButton.selected {
-  border-color: black;
-  border-width: thin;
-}
-
 
 // =============================================================================

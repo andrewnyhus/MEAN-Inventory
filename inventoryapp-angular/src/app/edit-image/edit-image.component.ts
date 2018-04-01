@@ -27,7 +27,9 @@ export class EditImageComponent implements OnInit {
 
       // set onLoad handler
       reader.onload = (evt:any) => {
+        // put image in image preview
         this.imageElement.nativeElement.src = evt.target.result;
+
       }
 
       // tell the reader to read the selected image
@@ -40,6 +42,7 @@ export class EditImageComponent implements OnInit {
   }
 
   uploadImage(){
+    var image = {data: this.imageElement.nativeElement.src};
 
   }
 

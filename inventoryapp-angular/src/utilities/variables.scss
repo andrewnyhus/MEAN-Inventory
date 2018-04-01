@@ -1,6 +1,7 @@
 // general
 $gray: rgb(238, 238, 238);
 $lighterGray: rgb(248, 248, 248);
+$modalBlackBG: rgba(0, 0, 0, .70);
 $viewContainerEdgeSize: 80vw;
 
 
@@ -8,6 +9,5 @@ $viewContainerEdgeSize: 80vw;
 $inventoryItemsOverviewHeight: 22vw;
 $thumbnailContainerEdgeSize: 18vw;
 
-// pertaining to inventory item detail
-$inventoryItemImageMaxEdgeSize: $viewContainerEdgeSize/2.7;
-$detailThumbnailMaxEdgeSize: $inventoryItemImageMaxEdgeSize/3;
+// pertaining to inventory item image
+$inventoryItemImageMaxEdgeSize: $viewContainerEdgeSize - 15vw;

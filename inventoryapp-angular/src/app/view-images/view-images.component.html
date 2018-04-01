@@ -1,29 +1,67 @@
-<div class="viewImagesContainer">
+<div class="parentImageViewer">
 
-  <!-- Image -->
-  <div class="imageContainer">
-    <button type="button" class="btn btn-default imageButton" name="button">
+  <!-- View Image -->
+  <!-- ===================================================================== -->
+  <div class="viewImagesContainer">
+
+    <button type="button"
+      class="btn btn-primary previousImageButton"
+      (click)="selectImageAtIndex(selectedImageIndex-1)">
+        <span class="glyphicon glyphicon-menu-left"></span>
+    </button>
+
+
+    <!-- Image -->
+    <button type="button" class="btn btn-default imageButton" (click)="toggleModal()" name="imageButton">
       <img #imageElement class="imageElement" [src]="images[selectedImageIndex].path" alt="">
     </button>
+
+    <button type="button"
+      class="btn btn-primary nextImageButton"
+      (click)="selectImageAtIndex(selectedImageIndex+1)">
+        <span class="glyphicon glyphicon-menu-right"></span>
+    </button>
+
   </div>
 
-  <!-- Controller for selecting image -->
-  <div class="imageController">
+  <div class="imageLabel">
+    Image {{selectedImageIndex+1}}/{{images.length}}
+  </div>
+  <!-- ===================================================================== -->
 
 
-    <!-- Flexbox with image thumbnails -->
-    <div class="thumbnailsFlexbox">
+  <!-- Modal -->
+  <!-- ===================================================================== -->
+  <div class="viewImagesModal" (click)="toggleModal()" [hidden]="!showModal">
 
-      <!-- Container for thumbnail -->
-      <div class="thumbnailContainer" *ngFor="let image of images; let i = index;">
-        <button type="button" class="thumbnailButton" [class.selected]="i === selectedImageIndex" name="imageButton" (click)="selectImageAtIndex(i)">
-          <img src="{{images[i].path}}" alt="">
-        </button>
-      </div>
 
+    <!-- Image -->
+    <div class="imageContainerModal">
+
+      <button type="button"
+        class="btn btn-primary previousImageButton"
+        (click)="selectImageAtIndex(selectedImageIndex-1); $event.stopPropagation()">
+          <span class="glyphicon glyphicon-menu-left"></span>
+      </button>
+
+      <!-- Image -->
+      <button type="button" class="btn btn-default imageButtonModal" name="imageButtonModal">
+        <img #imageElementModal class="imageElementModal" [src]="images[selectedImageIndex].path" alt="">
+      </button>
+
+      <button type="button"
+        class="btn btn-primary nextImageButton"
+        (click)="selectImageAtIndex(selectedImageIndex+1); $event.stopPropagation();">
+          <span class="glyphicon glyphicon-menu-right"></span>
+      </button>
+
+    </div>
+
+    <div class="imageLabelModal">
+      Image {{selectedImageIndex+1}}/{{images.length}}
     </div>
 
 
   </div>
-
+  <!-- ===================================================================== -->
 </div>
