@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { InventoryItemService } from '../services/inventoryItem.service';
-import InventoryItem from '../models/inventoryItem.model';
+import { InventoryItemService } from '../../../services/inventoryItem.service';
+import InventoryItem from '../../../models/inventoryItem.model';
 
 @Component({
   selector: 'app-create-inventory-item',

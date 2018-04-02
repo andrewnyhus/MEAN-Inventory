@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InventoryItemService } from '../services/inventoryItem.service';
+import { InventoryItemService } from '../../services/inventoryItem.service';
 import InventoryItem from '../models/inventoryItem.model';
 
 

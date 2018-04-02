@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { InventoryItemService } from '../services/inventoryItem.service';
-import InventoryItem from '../models/inventoryItem.model';
+import { InventoryItemService } from '../../../services/inventoryItem.service';
+import InventoryItem from '../../../models/inventoryItem.model';
 
 @Component({
   selector: 'app-edit-inventory-item',

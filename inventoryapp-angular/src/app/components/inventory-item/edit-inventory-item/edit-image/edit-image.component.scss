@@ -1,4 +1,4 @@
-@import "../../utilities/variables.scss";
+@import "../../../../../utilities/variables.scss";
 
 .popover-content{
   width:auto;
@@ -6,10 +6,6 @@
 }
 
 .imageContainer{
-  /*min-width: $inventoryItemImageMaxEdgeSize;
-  max-width: $inventoryItemImageMaxEdgeSize;
-  min-height: $inventoryItemImageMaxEdgeSize;
-  max-height: $inventoryItemImageMaxEdgeSize;*/
   max-width: inherit;
   max-height: inherit;
   background-color: $gray;
