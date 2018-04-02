@@ -45,7 +45,9 @@
       </button>
 
       <!-- Image -->
-      <button type="button" class="btn btn-default imageButtonModal" name="imageButtonModal">
+      <button type="button" class="btn btn-default imageButtonModal"
+        (click)="selectImageAtIndex(selectedImageIndex+1); $event.stopPropagation();"
+        name="imageButtonModal">
         <img #imageElementModal class="imageElementModal" [src]="images[selectedImageIndex].path" alt="">
       </button>
 
