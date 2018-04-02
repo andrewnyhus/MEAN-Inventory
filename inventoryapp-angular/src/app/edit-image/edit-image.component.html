@@ -5,9 +5,10 @@
 
     <!-- Add new image popover -->
     <popover-content #myPopover
-        title="Add New Image"
-        placement="right"
-        [closeOnClickOutside]="true">
+      class="popoverContent"
+      title="Add New Image"
+      placement="right"
+      [closeOnClickOutside]="true">
 
         <form>
           <div class="imageContainer">
@@ -20,6 +21,7 @@
         </form>
 
     </popover-content>
+
 
     <button type="button" class="btn btn-primary" [popover]="myPopover">
       <span class="glyphicon glyphicon-plus"></span>

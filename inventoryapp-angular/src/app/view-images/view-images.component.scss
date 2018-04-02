@@ -36,41 +36,6 @@
 }
 
 
-// Modal
-// =============================================================================
-.imageContainerModal{
-  width: auto;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.0);
-  display: flex;
-
-  vertical-align: middle;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.imageButtonModal{
-  max-width: 80vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-
-  padding: 0px;
-  border: 0px;
-}
-
-.imageElementModal{
-  max-width: inherit;
-  max-height: inherit;
-
-  object-fit: contain;
-}
-
-
-// =============================================================================
-
-
-
 // Image
 // =============================================================================
 .imageButton{
@@ -110,5 +75,39 @@
   width: 100%;
   text-align:center;
 }
+
+// =============================================================================
+
+
+// Modal
+// =============================================================================
+.imageContainerModal{
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.0);
+  display: flex;
+
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.imageButtonModal{
+  max-width: 80vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+
+  padding: 0px;
+  border: 0px;
+}
+
+.imageElementModal{
+  max-width: inherit;
+  max-height: inherit;
+
+  object-fit: contain;
+}
+
 
 // =============================================================================

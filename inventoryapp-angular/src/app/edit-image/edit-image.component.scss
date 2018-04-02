@@ -1,18 +1,24 @@
 @import "../../utilities/variables.scss";
 
+.popover-content{
+  width:auto;
+  height:auto;
+}
 
 .imageContainer{
-  min-width: $inventoryItemImageMaxEdgeSize;
+  /*min-width: $inventoryItemImageMaxEdgeSize;
   max-width: $inventoryItemImageMaxEdgeSize;
   min-height: $inventoryItemImageMaxEdgeSize;
-  max-height: $inventoryItemImageMaxEdgeSize;
+  max-height: $inventoryItemImageMaxEdgeSize;*/
+  max-width: inherit;
+  max-height: inherit;
   background-color: $gray;
   display: flex;
   justify-content: center;
 }
 
 .imageElement{
-  max-width: $inventoryItemImageMaxEdgeSize;
-  max-height: $inventoryItemImageMaxEdgeSize;
+  max-width: inherit;
+  max-height: inherit;
   object-fit: contain;
 }
