@@ -1,8 +1,8 @@
 @import "../../../../../utilities/variables.scss";
 
-.popover-content{
-  width:auto;
-  height:auto;
+.popover.popover-content{
+  background-color: red;
+  width: 100vw;
 }
 
 .imageContainer{

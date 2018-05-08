@@ -15,6 +15,8 @@ export class EditInventoryItemComponent implements OnInit {
     public inventoryItem: InventoryItem;
     isDataAvailable: boolean = false;
     private sub: any;
+    // create string for keywords input
+    public inventoryItemKeywords: string = "";
 
 
     constructor(
@@ -26,6 +28,7 @@ export class EditInventoryItemComponent implements OnInit {
 
     ngOnInit() {
 
+
       this.sub = this.route.params.subscribe(params => {
         // gets and casts id
         this.id = params.id;
@@ -34,6 +37,14 @@ export class EditInventoryItemComponent implements OnInit {
         this.inventoryItemService.getInventoryItem(this.id).subscribe(loadedInventoryItem => {
           this.inventoryItem = loadedInventoryItem;
           this.isDataAvailable = true;
+
+          // unpack keywords into keyword string
+          var keywordString: string = "";
+          for (var keyword in this.inventoryItem.keywords){
+            keywordString = keywordString + " " + this.inventoryItem.keywords[keyword];
+          }
+          this.inventoryItemKeywords = keywordString;
+
         })
 
 
